@@ -1,44 +1,75 @@
-// src/ForgotPassword.js
-import React from 'react';
-import { TextField, Button, Container, Typography, Paper } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Container, Box } from '@mui/material';
+import Footer from '../../Components/Footer';
 
 const ForgotPassword = () => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add logic to handle password reset
-        console.log('Password reset submitted');
-    };
+  const [open, setOpen] = useState(false);
 
-    return (
-        <Container component="main" maxWidth="xs" style={{ marginTop: '100px' }}>
-            <Paper elevation={6} style={{ padding: '30px', borderRadius: '15px' }}>
-                <Typography variant="h5" align="center" style={{ marginBottom: '20px' }}>
-                    Forgot Password
-                </Typography>
-                <form onSubmit={handleSubmit}>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        label="Email Address"
-                        autoComplete="email"
-                        autoFocus
-                        style={{ marginBottom: '20px' }}
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        style={{ padding: '10px', borderRadius: '5px' }}
-                    >
-                        Reset Password
-                    </Button>
-                </form>
-            </Paper>
-        </Container>
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add logic to handle password reset (API call, etc.)
+    console.log('Password reset submitted');
+    // Open the dialog popup to inform the user
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false); // Close the popup when the user acknowledges
+  };
+
+  return (
+    <main>
+      <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+         
+          padding: 4,  // Adds padding inside the box
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          backgroundColor: '#fff',  // White background for the form
+          borderRadius: 2,  // Adds rounded corners
+          boxShadow: 3, 
+          marginBottom:23
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Email"
+            type="email"
+            fullWidth
+            required
+          />
+          <Button type="submit" variant="contained" color="primary" style={{ marginTop: '20px' }}>
+            Reset Password
+          </Button>
+        </form>
+
+      {/* Password Reset Popup Dialog */}
+      <Dialog
+        open={open}
+        onClose={handleClose}
+      >
+        <DialogTitle>Password Reset</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            A password reset link has been sent to your email. Please check your inbox to reset your password.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+      </Box>
+
+      </Container>
+      
+      <Footer />
+    </main>
+  );
 };
 
 export default ForgotPassword;

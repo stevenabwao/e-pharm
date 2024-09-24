@@ -115,4 +115,4 @@ const ManufacturerDrugs = () => {
   );
 };
 
-export default ManufacturerDrugs;
+export default ViewmanufacturerDrugs;

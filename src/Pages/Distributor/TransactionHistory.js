@@ -12,6 +12,8 @@ import {
   TableRow,
   Paper,
 } from '@mui/material';
+import Footer from '../../Components/Footer';
+import ManuNavbar from './ManuNavbar';
 
 
 
@@ -30,45 +32,47 @@ const sampleTransactions = [
 
 const TransactionHistory = () => {
   return (
-    <div>
+    <main>
+      <ManuNavbar />
 
-<Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom fontWeight="bold">
-        Transaction History
-      </Typography>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Transaction ID</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Drug Name</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Total Price</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Customer Name</TableCell>
-              <TableCell>Customer Type</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sampleTransactions.map((transaction) => (
-              <TableRow key={transaction.id}>
-                <TableCell>{transaction.id}</TableCell>
-                <TableCell>{transaction.date}</TableCell>
-                <TableCell>{transaction.drugName}</TableCell>
-                <TableCell>{transaction.quantity}</TableCell>
-                <TableCell>${transaction.totalPrice}</TableCell>
-                <TableCell>{transaction.status}</TableCell>
-                <TableCell>{transaction.customerName}</TableCell>
-                <TableCell>{transaction.customerType}</TableCell>
+  <Container maxWidth="lg" sx={{ mt: 4 }}>
+        <Typography variant="h4" gutterBottom fontWeight="bold">
+          Transaction History
+        </Typography>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Transaction ID</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Drug Name</TableCell>
+                <TableCell>Quantity</TableCell>
+                <TableCell>Total Price</TableCell>
+                <TableCell>Status</TableCell>
+                <TableCell>Customer Name</TableCell>
+                <TableCell>Customer Type</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Container>
+            </TableHead>
+            <TableBody>
+              {sampleTransactions.map((transaction) => (
+                <TableRow key={transaction.id}>
+                  <TableCell>{transaction.id}</TableCell>
+                  <TableCell>{transaction.date}</TableCell>
+                  <TableCell>{transaction.drugName}</TableCell>
+                  <TableCell>{transaction.quantity}</TableCell>
+                  <TableCell>${transaction.totalPrice}</TableCell>
+                  <TableCell>{transaction.status}</TableCell>
+                  <TableCell>{transaction.customerName}</TableCell>
+                  <TableCell>{transaction.customerType}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Container>
+      <Footer />
     
-    </div>
+    </main>
   );
 };
 

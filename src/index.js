@@ -44,6 +44,10 @@ const router = createBrowserRouter(
         <Route path="forgot-password" element={<ForgotPassword/>} />
         <Route path="patientLogin" element={<PatientLogin/>} />
         <Route path="register" element={<ManuRegister/>} />
+       
+       
+        
+     
         
       </Route>
     </>

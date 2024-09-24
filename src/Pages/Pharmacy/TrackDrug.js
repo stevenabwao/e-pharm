@@ -13,6 +13,8 @@ import {
   FormControl,
   InputLabel,
 } from '@mui/material';
+import Footer from '../../Components/Footer';
+import ManuNavbar from './ManuNavbar';
 
 const TrackDrug = () => {
   const [trackingNumber, setTrackingNumber] = useState('');
@@ -29,7 +31,9 @@ const TrackDrug = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
+    <main>
+      <ManuNavbar />
+      <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom fontWeight="bold">
         Track Drug
       </Typography>
@@ -110,6 +114,10 @@ const TrackDrug = () => {
         )}
       </Paper>
     </Container>
+    <Footer />
+
+    </main>
+    
   );
 };
 
